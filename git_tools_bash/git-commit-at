@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -e
+
+#usage: $scriptName '1 day ago' 'add foo.txt' 
+#usage: $scriptName '2024-12-31 20:59:05' 'add foo.txt' 
+
+AT=`date -d "$1"`
+MESSAGE="$2"
+
+GIT_AUTHOR_DATE="$AT" GIT_COMMITTER_DATE="$AT" git commit -m "$MESSAGE"
